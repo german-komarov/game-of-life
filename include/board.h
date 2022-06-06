@@ -4,7 +4,9 @@
 #include "boardSize.h"
 
 void initializeBoard();
+
 void printBoardCurrentState();
+
 void setBoardNextState();
 
 void setUpGlider();
