@@ -111,5 +111,52 @@ bool isAlive(
 }
 
 int main() {
+    Board screen;
+    std::array<std::array<int, GAME_HEIGHT>, GAME_WIDTH> display {};
+    std::array<std::array<int, GAME_HEIGHT>, GAME_WIDTH> swap {};
 
+    // Create random points
+    //
+    for(auto& row : display)
+        std::generate(row.begin(), row.end(), []() { return rand() % 10 == 0 ? 1 : 0; });
+
+
+    while(true)
+    {
+        // Check for alive points
+        //
+        for(int i = 0; i < GAME_WIDTH; ++i)
+        {
+            for(int k = 0; k < GAME_HEIGHT; ++k)
+            {
+                swap[i][k] = isAlive(display, i, k) ? 1 : 0;
+            }
+        }
+
+        // Draw
+        //
+        for(int i = 0; i < GAME_WIDTH; ++i)
+        {
+            for(int k = 0; k < GAME_HEIGHT; ++k)
+            {
+                if(swap[i][k])
+                {
+                    screen.drawpixel(i,k);
+                }
+            }
+        }
+
+        // Swap buffers
+        //
+        std::copy(swap.begin(), swap.end(), display.begin());
+
+        // Display to screen
+        //
+        screen.update();
+        SDL_Delay(20);
+        screen.input();
+        screen.clearpixels();
+
+
+    }
 }
