@@ -1,10 +1,9 @@
-#include "include/SDL2/SDL.h"
-#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <array>
-
+#include <cstdlib>
+#include "include/SDL2/SDL.h"
 
 using namespace std;
 
