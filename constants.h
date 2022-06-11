@@ -1,7 +1,3 @@
-//
-// Created by Герман Комаров on 09.06.22.
-//
-
 #ifndef GOL_CONSTANTS_H
 #define GOL_CONSTANTS_H
 const int GAME_WIDTH = 640;
